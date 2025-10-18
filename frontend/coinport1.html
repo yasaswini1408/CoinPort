@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CoinPort Payment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fe;
+      color: #0f172a;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: #ffffff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 8vh;
+      width: 20vw;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #6366f1;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .auth-buttons button {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    .login {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+
+    .get-started {
+      background: #6366f1;
+      color: white;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 40px;
+      gap: 50px;
+    }
+
+    .left {
+      flex: 1 1 500px;
+      max-width: 600px;
+    }
+
+    .left h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .left h1 .inr {
+      color: #3b82f6;
+    }
+
+    .left h1 .usdt {
+      color: #14b8a6;
+    }
+
+    .left p {
+      margin-top: 25px;
+      font-size: 1.4rem;
+      color: #475569;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #6366f1;
+      color: white;
+      padding: 18px 32px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #4f46e5;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #1e293b;
+      border: 2px solid #cbd5e1;
+      padding: 18px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+    }
+
+    .rate {
+      margin-top: 45px;
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 1.6rem;
+    }
+
+    .rate span {
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-left: 8px;
+    }
+
+    .conversion {
+      display: inline-block;
+      margin-left: 30px;
+      color: #14b8a6;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .right {
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .right img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+    }
+
+    .right p {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #475569;
+      max-width: 600px;
+    }
+
+    .features-section {
+      margin-top: 120px;
+      padding: 60px 40px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .features-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 60px;
+      color: #1e293b;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+      max-width: 300px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .card img.logo {
+      width: 50px;
+      height: auto;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #475569;
+    }
+
+    @media (max-width: 900px) {
+      .main {
+        flex-direction: column;
+        padding: 60px 30px;
+      }
+
+      .left h1 {
+        font-size: 2.8rem;
+        text-align: center;
+      }
+
+      .left p,
+      .rate {
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .right img {
+        max-width: 90%;
+      }
+
+      .right p {
+        font-size: 1.2rem;
+        padding: 0 10px;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="coinportlogo.png" alt="CoinPort Logo" />
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Make Payment</a>
+      <a href="#">Merchant Dashboard</a>
+    </nav>
+    <div class="auth-buttons">
+      <button class="login">Login</button>
+      <button class="get-started">Get Started</button>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="left">
+      <h1>
+        Pay in <span class="inr">INR</span>,<br />
+        Receive <span class="usdt">USDT</span>
+      </h1>
+      <p>Bridge traditional UPI payments with blockchain. Instant conversion, secure transactions, global reach.</p>
+      <div class="buttons">
+        <button class="btn-primary">Start Payment →</button>
+        <button class="btn-secondary">Merchant Dashboard</button>
+      </div>
+      <div class="rate">
+        ₹83 <span>= $1 USDT</span>
+        <span class="conversion">Instant</span> <span>Conversion</span>
+      </div>
+        </div>
+    <div class="right">
+      <img src="coinport2img.png" alt="Blockchain Graphic" />
+       
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h2>Why Choose CoinPort?</h2>
+
+    <div class="features">
+      <div class="card">
+        <div class="card-header">
+          <img src="card4.png" alt="Instant Conversion Logo" class="logo" />
+          <h3>Instant Conversion</h3>
+        </div>
+        <p>Pay in INR via UPI and receive USDT in your wallet within minutes.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <img src="card3.png" alt="Secure & Safe Logo" class="logo" />
+          <h3>Secure & Safe</h3>
+        </div>
+        <p>Bank-grade security with blockchain transparency and encryption.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <img src="card2.png" alt="Global Reach Logo" class="logo" />
+          <h3>Global Reach</h3>
+        </div>
+        <p>Send and receive payments across borders with minimal fees.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <img src="card1.png" alt="Low Fees Logo" class="logo" />
+          <h3>Low Fees</h3>
+        </div>
+        <p>Transparent pricing with no hidden charges or surprises.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
