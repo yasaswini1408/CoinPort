@@ -77,22 +77,6 @@ PORT=5000
 
 ---
 
-## 📁 Folder Structure  
-```
-coinport/
-│
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── App.jsx
-│   ├── main.jsx
-│
-├── public/
-│
-├── package.json
-└── README.md
-```
-
 ---
 
 ## 🔗 How It Works  
@@ -132,5 +116,6 @@ This project is licensed under the **MIT License** — feel free to use and impr
 
 ### 🧭 Tagline  
 > “Pay in INR. Receive in Crypto. Fast. Secure. Borderless.”
+
 
 
