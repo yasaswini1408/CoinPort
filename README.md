@@ -120,12 +120,10 @@ User → UPI Payment → CoinPort Backend → Smart Contract → Merchant Wallet
 
 ---
 
-## 👨‍💻 Author  
-**Devi Vadavalasa**  
-📧 your-email@example.com  
-🌐 [Portfolio or LinkedIn link]
-
----
+## 👨‍💻 Team Members 
+**svl yasaswani**
+**V.Devamma**
+**v.Sai Varshitha**
 
 ## 📜 License  
 This project is licensed under the **MIT License** — feel free to use and improve it.
@@ -134,4 +132,5 @@ This project is licensed under the **MIT License** — feel free to use and impr
 
 ### 🧭 Tagline  
 > “Pay in INR. Receive in Crypto. Fast. Secure. Borderless.”
+
 
