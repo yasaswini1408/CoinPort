@@ -88,6 +88,15 @@ PORT=5000
 
 ---
 
+---
+
+## 🚀 Live Demo
+
+You can access the live CoinPort website here:  
+👉 https://sl1nk.com/CHFck
+
+---
+---
 ## 🧠 Workflow Diagram  
 
 ```
@@ -116,6 +125,7 @@ This project is licensed under the **MIT License** — feel free to use and impr
 
 ### 🧭 Tagline  
 > “Pay in INR. Receive in Crypto. Fast. Secure. Borderless.”
+
 
 
 
